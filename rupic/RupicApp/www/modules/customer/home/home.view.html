@@ -1,0 +1,42 @@
+﻿ 
+<!--div class="row">
+	<div class="col" >
+
+
+ 				<h1>Hi {{vm.user.firstName}}!</h1>
+<p>You're logged in!!</p>
+<h3>All registered users:</h3>
+ 
+<p>&nbsp;</p>
+<p><a href="/logout" class="btn btn-primary">Logout</a></p>
+		
+		</div>
+		</div-->
+
+<div class="row" ng-controller="homeCtrl">
+	<div class="col">
+Account No = {{}}
+Account Type = {{}}
+Balance = {{}}
+		<div class="center">
+			<div class="md-form">
+				<div class="input-group">
+					 
+					<span class="input-group-btn">
+					<button class="btn btn-danger btn-number" data-field="quant[2]" data-type="minus" type="button">
+					<i aria-hidden="true" class="fa fa-minus"></i></button>
+					</span>
+					<input ng-model="cashAmount" class="form-control input-number" max="100" min="1" name="quant[2]" type="text" value="{{cashAmount}}">
+					<label class="form-header" for="form1">Enter your Amount</label>
+					<span class="input-group-btn">
+					<button class="btn btn-success btn-number" data-field="quant[2]" data-type="plus" type="button">
+					<i aria-hidden="true" class="fa fa-plus"></i></button>
+					</span></div>
+				<a ng-href="/pickupcash" class="btn btn-amber">Cash</a>
+				<a ng-href="/pickupcheque" class="btn btn-deep-orange">Cheque</a>
+				{{message}}
+				</div>
+			<!--Deep-orange--></div>
+	</div>
+</div>
+ 
