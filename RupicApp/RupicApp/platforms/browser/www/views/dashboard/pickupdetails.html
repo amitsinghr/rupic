@@ -1,0 +1,53 @@
+<div>
+	<snap-drawer> 
+	<div class="snap-menu">
+		<div class="sidebar-header text-center">
+		<h1><i class="fa fa-rupee" aria-hidden="true"></i>upic</h1>
+			<!--img class="sidebar-img img-circle" src="images/flat-avatar.png"-->
+		</div>
+		<ul class="snap-ul">
+			<li ng-class="{active: $state.includes('overview')}">
+			<a ui-sref="overview">Dashboard</a></li>
+			<li ng-class="{active: $state.includes('reports')}">
+			<a ui-sref="reports">Pickup Details</a></li>
+			<li><a ui-sref="login">LOGOUT</a></li>
+			<!--li><a href="http://www.strapui.com">MORE PREMIUM THEME</a></li-->
+		</ul>
+	</div>
+	</snap-drawer> <snap-dragger></snap-dragger> <snap-content snap-opt-tap-to-close=false> 
+	<a ng-click="menuOpen = !menuOpen" snap-toggle="left">
+	<span class="menutoggle"><i class="fa fa-bars fa-2x" ng-hide="menuOpen"></i>
+	<i class="fa fa-times fa-2x" ng-show="menuOpen"></i></span></a>
+	<div class="fr">
+	<h2>Pickup Details <div class="pull-right"><i class="fa fa-rupee" aria-hidden="true"></i>upic&nbsp;</div></h2> 
+	</div>
+	<div class="container">
+		<div class="text-left">
+		 <strong>ACCOUNT TYPE:</strong> Savings Account <br> <strong>ACCOUNT NO:</strong> 4444777755551681 <br> <strong>BALANCE:</strong> 50,000 
+		 
+		</div>
+	</div>
+	<span class="glyphicon glyphicon-dashboard bg-fade"></span>
+	<div class="jumbotron">
+		<div class="container">
+		<p class="text-center"><strong><span class="fa fa-thumbs-up"></span> Thank you <br> Your cash will be picked up by</strong></p><br/>
+				<p class="text-left"><span class="glyphicon glyphicon-user"></span>&nbsp;<strong>Agent:  Deepak Kumar</strong><br/>
+				<span class="glyphicon glyphicon-home"></span>&nbsp;<strong>Agency: Shree Enterprises </strong><br/>
+				<span class="glyphicon glyphicon-phone"></span>&nbsp;<strong>Phone:  996789806</strong></p>
+				<p>
+				<p>&nbsp;</p>
+				<h4 class="text-center">Pickup Details<br>16/04/2017 7:40 PM<br>
+					Pick Up Id: 342987</h4>
+				</p>
+				<p>&nbsp;</p>
+		 
+				<p><a class="btn btn-primary btn-lg btn-white" ui-sref="overview">Back</a> <a class="btn btn-primary btn-lg btn-white" ui-sref="login">Logout</a></p>
+				 
+			 
+				
+			
+		</div>
+		</div>
+	
+	 
+	</snap-content> </div>
