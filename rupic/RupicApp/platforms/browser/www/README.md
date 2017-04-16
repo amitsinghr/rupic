@@ -1,2 +1,0 @@
-# rupic
-Collection Mobile App
