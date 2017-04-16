@@ -2,8 +2,7 @@
 	<snap-drawer> 
 	<div class="snap-menu">
 		<div class="sidebar-header text-center">
-			<h1><i class="fa fa-rupee" aria-hidden="true"></i>upic</h1>
-                        
+			<h1><i aria-hidden="true" class="fa fa-rupee"></i>upic</h1>
 			<!--img class="sidebar-img img-circle" src="images/flat-avatar.png"-->
 		</div>
 		<ul class="snap-ul">
@@ -20,47 +19,57 @@
 	<span class="menutoggle"><i class="fa fa-bars fa-2x" ng-hide="menuOpen"></i>
 	<i class="fa fa-times fa-2x" ng-show="menuOpen"></i></span></a>
 	<div class="fr">
-	 
-	<h2>Pickup Cash <div class="pull-right"><i class="fa fa-rupee" aria-hidden="true"></i>upic&nbsp;</div></h2>
+		<h2>Pickup Cash 
+		<div class="pull-right">
+			<i aria-hidden="true" class="fa fa-rupee"></i>upic&nbsp;</div>
+			</h2>
 	</div>
 	<div class="container">
-		<div class="text-left">
-		<p><strong>ACCOUNT TYPE:</strong> Savings Account <br> <strong>ACCOUNT NO:</strong> 4444777755551681 <br> <strong>BALANCE:</strong> 50,000</p>
-		</div>
-	</div>
-	<div class="jumbotron">
-		<div class="container">
-		
-			<h4>Enter your Cash Amount</h4>		 
-			<!--I don't want to bloat this Versatile Theme Free Edition AngularJS Admin 
-			theme with a lot of plugins. To install plugins we have bower. Let's 
-			keep it real clean!<br><br-->
-			<form class="bottom-75" ng-submit="submit()" role="form">
-			<div class="table-form">
-				<div class="form-groups">
-					 
-					<div class="form-group">
-						<input class="form-control input-lg" placeholder="Please enter cash amount" type="text">
-					</div>
-					<!--div class="form-group">
-						<input class="form-control input-lg" placeholder="PASSWORD" type="password">
-					</div-->
-				</div>
-				<div class="button-container">
-					
-					<!--img src="images/arrow.png"--></div>
+		<div class="panel">
+			<div class="panel-heading">
+				<span class="glyphicon glyphicon-asterisk"></span>&nbsp;Account 
+				Info</div>
+			<div class="panel-body">
+				<strong>ACCOUNT TYPE:</strong> Savings Account <br><strong>ACCOUNT 
+				NO:</strong> 4444777755551681 <br><strong>BALANCE:</strong> 50,000
 			</div>
-			<!--div class="remember">
-				<span class="checkbox1">Register Now!</span>
-				<!--label class="checkbox1" for="Option">
-				<input id="Option" type="checkbox"> <span></span></label>remember 
-				me-->  </div-->
-		</form>
-			<p><a class="btn btn-primary btn-lg btn-white" type="submit" ui-sref="reports"><i class="fa fa-rupee" aria-hidden="true"></i>
-                        Collect Now</a> 
-			   <a class="btn btn-primary btn-lg btn-white" type="submit" ui-sref="reports">Schedule</a>	
-			   <a class="btn btn-primary btn-lg btn-white" ui-sref="login">Logout</a>
-			</p>
 		</div>
 	</div>
+	<div class="container">
+		<div class="panel">
+			<div class="panel-heading">
+				<span class="fa fa-rupee"></span>&nbsp;Enter Cash Amount for Pick 
+				up</div>
+			<div class="panel-body">
+				<form class="bottom-75" ng-submit="submit()" role="form">
+					<div class="table-form">
+						<div class="form-groups">
+							<div class="form-group">
+								<input class="form-control input-lg" placeholder="Please enter cash amount" type="text">
+							</div>
+							<!--div class="form-group">
+										<input class="form-control input-lg" placeholder="PASSWORD" type="password">
+									</div--></div>
+						<div class="button-container">
+							<!--img src="images/arrow.png"--></div>
+					</div>
+					<!--div class="remember">
+								<span class="checkbox1">Register Now!</span>
+								<!--label class="checkbox1" for="Option">
+								<input id="Option" type="checkbox"> <span></span></label>remember 
+								me--></div-->
+				</form>
+				<a class="btn btn-primary btn-lg btn-white pull-left" type="submit" ui-sref="reports">
+				<i aria-hidden="true" class="fa fa-hand"></i>Collect Now</a>
+				<a class="btn btn-primary btn-lg btn-white pull-right" type="submit" ui-sref="reports">
+				Schedule</a> </div>
+		</div>
+	</div>
+	<nav class="navbar navbar-default navbar-fixed-bottom">
+		<div class="container-fluid">
+			<div class="navbar-header">
+				<a class="btn btn-primary btn-lg btn-white pull-right" pull-right="" ui-sref="login">
+				Logout</a> </div>
+		</div>
+	</nav>
 	</snap-content> </div>
