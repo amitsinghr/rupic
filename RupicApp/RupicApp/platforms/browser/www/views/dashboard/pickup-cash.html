@@ -1,0 +1,115 @@
+<div>
+	<div ng-include="'/partials/menu.html'">
+	</div>
+	<snap-content snap-opt-tap-to-close=false> 
+	<a ng-click="menuOpen = !menuOpen" snap-toggle="left">
+	<span class="menutoggle"><i class="fa fa-bars fa-2x" ng-hide="menuOpen"></i>
+	<i class="fa fa-times fa-2x" ng-show="menuOpen"></i></span></a>
+	<div class="fr">
+		<h3>Pickup Cash <div class="pull-right">
+			<strong><i aria-hidden="true" class="fa fa-rupee"></i>upic</strong></div></h3>
+		
+		 
+	</div>
+	<div ng-include="'/partials/accountinfo.html'">
+	</div>
+	<div class="container-fluid">
+		<div class="panel" ng-controller="pickupcashCtrl">
+			<div class="panel-heading">
+				<span class="fa fa-rupee"></span>&nbsp;Please enter Cash denominations</div>
+			<div class="panel-body">
+				<form ng-submit="submit()" role="form">
+					<div class="table-form">
+						<div class="form-groups">
+							<div class="form-group">
+								<div class="row">
+									<div class="col-xs-2 col-md-2 text-right">
+										100</div>
+									<div class="col-xs-2 col-md-2">
+										<button class="btn btn-white" ng-click="subtract(100)">
+										<i aria-hidden="true" class="fa fa-minus">
+										</i></button></div>
+									<div class="col-xs-6 col-md-6">
+										<input class="form-control"  placeholder="" type="text" ng-model="denom100" value={{denom100}} />
+									</div>
+									<div class="col-xs-2 col-md-2">
+										<button class="btn btn-primary btn-white pull-right" ng-click="add(100)">
+										<i aria-hidden="true" class="fa fa-plus">
+										</i></button></div>
+								</div>
+								<div class="row">
+									<div class="col-xs-2 col-md-2 text-right">
+										500</div>
+									<div class="col-xs-2 col-md-2">
+										<button class="btn btn-white" ng-click="subtract(500)">
+										<i aria-hidden="true" class="fa fa-minus">
+										</i></button></div>
+									<div class="col-xs-6 col-md-6">
+										<input class="form-control" ng-model="denom500" placeholder="" type="text" value={{denom500}} />
+									</div>
+									<div class="col-xs-2 col-md-2">
+										<button class="btn btn-primary btn-white pull-right" ng-click="add(500)">
+										<i aria-hidden="true" class="fa fa-plus">
+										</i></button></div>
+								</div>
+								<div class="row">
+									<div class="col-xs-2 col-md-2 text-right">
+										1000</div>
+									<div class="col-xs-2 col-md-2">
+										<button class="btn btn-white" ng-click="subtract(1000)">
+										<i aria-hidden="true" class="fa fa-minus">
+										</i></button></div>
+									<div class="col-xs-6 col-md-6">
+										<input class="form-control" ng-model="denom1000" placeholder="" type="text" value={{denom1000}} />
+									</div>
+									<div class="col-xs-2 col-md-2">
+										<button class="btn btn-primary btn-white pull-right" ng-click="add(1000)">
+										<i aria-hidden="true" class="fa fa-plus">
+										</i></button></div>
+
+								</div>
+								<div class="row">
+									<div class="col-xs-2 col-md-2 text-right">
+										2000</div>
+									<div class="col-xs-2 col-md-2">
+										<button class="btn btn-white" ng-click="subtract(2000)">
+										<i aria-hidden="true" class="fa fa-minus">
+										</i></button></div>
+									<div class="col-xs-6 col-md-6">
+										<input class="form-control" ng-model="denom2000" placeholder="" type="text" value={{denom2000}} />
+									</div>
+									<div class="col-xs-2 col-md-2">
+										<button class="btn btn-primary btn-white pull-right" ng-click="add(2000)">
+										<i aria-hidden="true" class="fa fa-plus">
+										</i></button></div>
+								</div>
+								<div class="row">
+									<div class="col-xs-12 col-md-12">
+									<hr/>
+									</div>
+								</div>	
+								<div class="row">
+									<div class="col-xs-4 col-md-6 text-center">
+										<h3><strong>Total</strong></h3></div>
+									<div class="col-xs-8 col-md-6 text-left">
+										<h3><strong>{{total}}</strong></h3></div>
+									</div>
+								</div>
+								<div class="row">
+			<div class="col-xs-12 col-md-12">
+				<a class="btn btn-primary btn-lg btn-white text-center" type="submit" ui-sref="pickupdetails">
+				<i aria-hidden="true" class="fa fa-flash"></i>&nbsp;<small>Collect 
+				Now</small></a>
+				<a class="btn btn-primary btn-lg btn-white text-center" type="submit" ui-sref="schedulepickup" ng-disabled="true">
+				<i aria-hidden="true" class="fa fa-clock-o"></i>&nbsp;<small>Schedule</small></a>
+			</div>
+							</div>
+						</div>
+					</div>
+				</div>
+				</form>
+			</div>
+		</div>		
+	</div>
+	<div ng-include="'/partials/footer.html'"></div>
+	</snap-content> </div>

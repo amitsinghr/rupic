@@ -20,10 +20,12 @@
 <title>Rupic Application</title> 
 <meta name=description> 
 <meta name=viewport content="width=device-width">  
+<link rel=stylesheet href=styles/font-awesome/css/font-awesome.min.css> 
 <link rel=stylesheet href=styles/vendor.css> 
 <link rel=stylesheet href=styles/main.css> 
+
 </head> 
-<body ng-app=yapp> <!--[if lt IE 7]>
+<body ng-app=rupicapp> <!--[if lt IE 7]>
  <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
  <![endif]-->  <div><div ui-view>
  </div></div><script> /*
@@ -39,6 +41,7 @@
  <![endif]--> 
  <script src=scripts/vendor.js> </script> 
  <script src=scripts/scripts.js> </script> 
+ <script src=services/rupicFactory.js> </script> 
  <script type="text/javascript" src="cordova.js"></script>
     <!--script type="text/javascript" src="js/index.js"></script-->
     <script type="text/javascript">

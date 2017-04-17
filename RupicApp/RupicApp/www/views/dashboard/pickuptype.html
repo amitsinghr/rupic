@@ -1,0 +1,27 @@
+<div>
+	<div ng-include="'/partials/menu.html'"></div>
+	<snap-content snap-opt-tap-to-close=false> 
+	<a ng-click="menuOpen = !menuOpen" snap-toggle="left">
+	<span class="menutoggle"><i class="fa fa-bars fa-2x" ng-hide="menuOpen"></i>
+	<i class="fa fa-times fa-2x" ng-show="menuOpen"></i></span></a>
+	<div class="fr">
+		<h2>Pickup Type 
+		<div class="pull-right">
+			<strong><i aria-hidden="true" class="fa fa-rupee"></i>upic</strong>&nbsp;</div>
+			</h2>
+	</div>
+	<div ng-include="'/partials/accountinfo.html'">
+	</div>
+	<div class="container">
+		<div class="panel">
+		<div class = "panel-heading"><i aria-hidden="true" class="fa fa-arrow-up"></i>&nbsp;Choose your Pick-up type</div>
+		<div class="panel-body"> 
+				<a class="btn btn-primary btn-block btn-lg btn-white" type="submit" ui-sref="pickupcash">
+				<i aria-hidden="true" class="fa fa-rupee"></i>&nbsp;Cash</a>
+				<a class="btn btn-primary btn-block btn-lg btn-white pull-right" type="submit" ui-sref="pickupcheque">
+				<i class="fa fa-id-card-o" aria-hidden="true"></i>&nbsp;Cheque</a> </div>
+		</div>
+		</div>
+	</div>
+	<div ng-include="'/partials/footer.html'"></div>
+	</snap-content> </div>

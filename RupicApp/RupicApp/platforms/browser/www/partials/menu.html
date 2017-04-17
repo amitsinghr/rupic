@@ -1,0 +1,17 @@
+<snap-drawer> 
+	<div class="snap-menu">
+		<div class="sidebar-header text-center">
+			<h1><strong><i aria-hidden="true" class="fa fa-rupee"></i>upic</strong></h1>
+			<!--img class="sidebar-img img-circle" src="images/flat-avatar.png"-->
+		</div>
+		<ul class="snap-ul">
+			<li ng-class="{active: $state.includes('pickupcash')}">
+			<a ui-sref="pickupcash">Pick-up Cash</a></li>
+			<li ng-class="{active: $state.includes('pickupcheque')}">
+			<a ui-sref="pickupcheque">Pick-up Cheque</a></li>
+			<li><a ui-sref="login">Logout</a></li>
+			<!--li><a href="http://www.strapui.com">MORE PREMIUM THEME</a></li-->
+		</ul>
+	</div>
+</snap-drawer> 
+<snap-dragger></snap-dragger> 

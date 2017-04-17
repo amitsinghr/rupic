@@ -1,40 +1,16 @@
 <div>
-	<snap-drawer> 
-	<div class="snap-menu">
-		<div class="sidebar-header text-center">
-			<h1><i aria-hidden="true" class="fa fa-rupee"></i>upic</h1>
-			<!--img class="sidebar-img img-circle" src="images/flat-avatar.png"-->
-		</div>
-		<ul class="snap-ul">
-			<li ng-class="{active: $state.includes('overview')}">
-			<a ui-sref="overview">Dashboard</a></li>
-			<li ng-class="{active: $state.includes('reports')}">
-			<a ui-sref="reports">Pickup Details</a></li>
-			<li><a ui-sref="login">LOGOUT</a></li>
-			<!--li><a href="http://www.strapui.com">MORE PREMIUM THEME</a></li-->
-		</ul>
-	</div>
-	</snap-drawer> 
-	<snap-dragger></snap-dragger> 
+	<div ng-include="'/partials/menu.html'"></div>
 	<snap-content snap-opt-tap-to-close=false> 
 	<a ng-click="menuOpen = !menuOpen" snap-toggle="left">
 	<span class="menutoggle"><i class="fa fa-bars fa-2x" ng-hide="menuOpen"></i>
 	<i class="fa fa-times fa-2x" ng-show="menuOpen"></i></span></a>
 	<div class="fr">
-		<h2>Pickup Cash 
+		<h3>Pickup details
 		<div class="pull-right">
 			<strong><i aria-hidden="true" class="fa fa-rupee"></i>upic</strong>&nbsp;</div>
-			</h2>
+			</h3>
 	</div>
-	<div class="container">
-		<div class="panel">
-			<div class="panel-heading">
-				<span class="glyphicon glyphicon-asterisk"></span>&nbsp;Account 
-				Info</div>
-			<div class="panel-body">
-				ACCOUNT TYPE: Savings Account <br>ACCOUNT NO: 4444777755551681
-				<br>BALANCE: 50,000 </div>
-		</div>
+	<div ng-include="'/partials/accountinfo.html'">
 	</div>
 	<span class="glyphicon glyphicon-dashboard bg-fade"></span>
 	<div class="container">
@@ -66,14 +42,6 @@
 			</div>
 		</div>
 	</div>
-	<nav class="navbar navbar-default navbar-fixed-bottom">
-		<div class="container-fluid">
-			<div class="navbar-header">
-				<a class="btn btn-primary btn-lg btn-white pull-left" ui-sref="overview">
-				Back</a>
-				<a class="btn btn-primary btn-lg btn-white pull-right" ui-sref="login">
-				Logout</a> </div>
-		</div>
-	</nav>
+	<div ng-include="'/partials/footer.html'"></div>
 	</snap-content> 
 </div>

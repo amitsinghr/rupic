@@ -10,12 +10,15 @@
 		<!--div class="pro-link">
 			<a href="http://www.strapui.com/">MORE PREMIUM THEME</a> </div-->
 
-		<form class="bottom-75" ng-submit="submit()" role="form">
+		<form class="bottom-75" ng-submit="submit()" role="form" name="myform">
 			<div class="table-form">
 				<div class="form-groups">
 					 
 					<div class="form-group" >
-						<input class="form-control input-lg" placeholder="ACCOUNTNO" type="text">
+						<input class="form-control input-lg" placeholder="ACCOUNTNO" type="text" name="inputlogin" required>
+						<!--span style="color:red" ng-show="myform.inputlogin.$dirty && myform.inputlogin..$invalid">
+  							<span ng-show="myform.inputlogin..$error.required">Account No is required.</span>
+  						</span-->
 					</div>
 					<!--div class="form-group">
 						<input class="form-control input-lg" placeholder="PASSWORD" type="password">
