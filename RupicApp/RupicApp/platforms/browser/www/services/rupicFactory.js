@@ -1,4 +1,4 @@
-angular.module('RUPIC').factory('rupicFactory', ['$http', function($http) {
+angular.module('rupicapp').factory('rupicFactory', ['$http', function($http) {
     var authFactory = {};
  
     rupicFactory.authenticate = function(e){
