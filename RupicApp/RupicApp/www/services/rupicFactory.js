@@ -19,7 +19,7 @@ angular.module('rupicapp').factory('rupicFactory',
 
     rupicFactory.login = function(login){
         var deferred = $q.defer();
-        var result = { "login" : false, "data" : "No data found", "code" : 0, "desc":"" }; 
+        var result = { "login" : false, "data" : "No data found", "code" : 0, "desc":"Unknown Error!" }; 
         var obj = $http.get(dataUrl + 'balanceenquiry/',
         {
             params: {
@@ -30,22 +30,23 @@ angular.module('rupicapp').factory('rupicFactory',
         }).then(function(response){
                 //$q.resolve(response);
                 console.log("Promise fullfilled");
-                console.log(response);
-                
-                
                 for(var x in response.data){
                  if(x==1){
-                   result.data = response.data[x]; result.code = response.status; result.desc =  response.statusText;
+                   result.data = response.data[x]; 
+                   result.code = response.status; 
+                   result.desc =  response.statusText;
+                   console.log(response);
                    if(response.statusText == "OK"){
                         result.login = true;
                         authlogin = result.login;
                         objCustomer = result.data;
-                    }
-                   //console.log(objCustomer);
-                    }
+                    }}
                  else  {
+                    
                    objCustomer = null; 
-                   result.data = response.data[x]; result.code = response.data[x].code; result.desc = response.data[x].description 
+                   result.data = response.data[x]; 
+                   result.code = response.data[x].code; 
+                   result.desc = response.data[x].description 
                    //console.log(objResponse); 
                     }
                 }

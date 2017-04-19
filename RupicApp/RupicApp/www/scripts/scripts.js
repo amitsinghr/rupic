@@ -68,12 +68,14 @@ $scope.showmsg = false;
  	 promise.then(function(result){ 
  	 	console.log(result);
  	 	if(result.login==true){
- 	 		//$scope.showmsg = true;
+ 	 		
  	 		//$scope.customer = result.data;
  	 		return $location.path("/pickuptype"),!1
  	 	}
  	 	else{
+ 	 		$scope.showmsg = true;
  	 		$scope.message = result.desc;
+ 	 		login.accno="";
  	 	}
  	 },function(error){
  	 	$scope.message = "An error occurred";
