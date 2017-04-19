@@ -1,5 +1,5 @@
 <div>
-	<div ng-include="'/partials/menu.html'"></div>
+	<div data-ng-include="'partials/menu.html'"></div>
 	<snap-content snap-opt-tap-to-close=false> 
 	<a ng-click="menuOpen = !menuOpen" snap-toggle="left">
 	<span class="menutoggle"><i class="fa fa-bars fa-2x" ng-hide="menuOpen"></i>
@@ -10,7 +10,7 @@
 			<strong><i aria-hidden="true" class="fa fa-rupee"></i>upic</strong>&nbsp;</div>
 			</h2>
 	</div>
-	<div ng-include="'/partials/accountinfo.html'">
+	<div data-ng-include="'partials/accountinfo.html'">
 	</div>
 	<div class="container">
 		<div class="panel">
@@ -23,5 +23,5 @@
 		</div>
 		</div>
 	</div>
-	<div ng-include="'/partials/footer.html'"></div>
+	<div data-ng-include="'partials/footer.html'"></div>
 	</snap-content> </div>

@@ -5,8 +5,8 @@ angular.module("rupicapp",["ui.router","snap","ngAnimate"])
 
 t.when("/dashboard","/dashboard/overview"),
 t.when("/pickuptype","/dashboard/pickuptype"),
-t.when("/pickupcheque","/dashboard/pickupcheque")
-//,t.otherwise("/login"),
+t.when("/pickupcheque","/dashboard/pickupcheque") 
+,t.otherwise("/login"),
 
 r.state("base",{
 	"abstract":!0,
@@ -53,13 +53,33 @@ r.state("base",{
 	templateUrl:"views/dashboard/pickupdetails.html"
 })}])
 
-,angular.module("rupicapp").controller("LoginCtrl",["$scope","$location",function($scope,$location){
+,angular.module("rupicapp").controller("LoginCtrl",["$scope","$location","rupicFactory",function($scope,$location,rupicfactory){
 
-	$scope.customer = {"acctype":"Savings Account", "accno":"4444777755551681", "balance":"50,000" }
+$scope.customer = rupicfactory.getcustomerinfo();//{"acctype":"Savings Account", "accno":"4444777755551681", "balance":"50,000" }
+$scope.showmsg = false;
 	
- $scope.submit=function(){
-	 return $location.path("/pickuptype")//,!1
-	}
+ $scope.submit=function(login){
+ 	 //console.log(e.accno);
+ 	 console.log("Request Started");
+
+ 	 var promise = rupicfactory.login(login);
+ 	 console.log("Request Completed");
+ 	 //console.log(promise);
+ 	 promise.then(function(result){ 
+ 	 	console.log(result);
+ 	 	if(result.login==true){
+ 	 		//$scope.showmsg = true;
+ 	 		//$scope.customer = result.data;
+ 	 		return $location.path("/pickuptype"),!1
+ 	 	}
+ 	 	else{
+ 	 		$scope.message = result.desc;
+ 	 	}
+ 	 },function(error){
+ 	 	$scope.message = "An error occurred";
+ 	 	console.log(error);
+ 	 });
+ 	}
 }])
 
 ,angular.module("rupicapp").controller("pickupcashCtrl",["$scope","$location",function($scope,t){
@@ -127,5 +147,5 @@ $scope.subtract=function(e){
 ,angular.module("rupicapp").controller("DashboardCtrl",["$scope","$state",function(r,t){
 
 r.$state=t
-console.log(r.$state);
+//console.log(r.$state);
 }]);
