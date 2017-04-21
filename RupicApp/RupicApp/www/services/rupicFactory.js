@@ -1,20 +1,27 @@
-angular.module('rupicapp').factory('rupicFactory', 
+angular.module('rupicapp')
+
+
+.factory('rupicFactory', 
 ['$http','$q','$location', function($http,$q,$location) {
     var rupicFactory = {};
     var dataUrl = "https://retailbanking.mybluemix.net/banking/icicibank/";
     var objCustomer = {"accounttype":"Savings Account", "accountno":"4444777755551681", "balance":"50,000" };
     var authlogin = false;
     var userdetails;
-    
+    var pickupcode = Math.floor(Math.random() * 100000);
+
+
  
 //Get CustomerDetails
     rupicFactory.getcustomerinfo = function(){
-        //console.log(objCustomer);
-
-        if(objCustomer==null || objCustomer=="")
+      if(objCustomer==null || objCustomer=="")
             return $location.path("/login")
            
         return objCustomer;
+    }
+
+    rupicFactory.requestpickup = function(e){
+        console.log(e);
     }
 
     rupicFactory.login = function(login){
@@ -129,6 +136,10 @@ angular.module('rupicapp').factory('rupicFactory',
         //return objbalance;
         return "50000";
     };
+
+    /*function getpickupcode{
+      return Math.floor(Math.random()*(900000-100000+1)+min);
+    }*/
 
     return rupicFactory;
 }])

@@ -56,96 +56,68 @@ r.state("base",{
 ,angular.module("rupicapp").controller("LoginCtrl",["$scope","$location","rupicFactory",function($scope,$location,rupicfactory){
 
 $scope.customer = rupicfactory.getcustomerinfo();//{"acctype":"Savings Account", "accno":"4444777755551681", "balance":"50,000" }
-$scope.showmsg = false;
-	
- $scope.submit=function(login){
- 	 //console.log(e.accno);
- 	 console.log("Request Started");
 
- 	 var promise = rupicfactory.login(login);
- 	 console.log("Request Completed");
- 	 //console.log(promise);
+$scope.submit=function(login){
+   	 console.log("Request Started");
+ 	 $scope.loading = true;
+     var promise = rupicfactory.login(login);
+ 	  	  
  	 promise.then(function(result){ 
  	 	console.log(result);
+ 	 	$scope.loading = false;
  	 	if(result.login==true){
- 	 		
- 	 		//$scope.customer = result.data;
  	 		return $location.path("/pickuptype"),!1
  	 	}
  	 	else{
- 	 		$scope.showmsg = true;
+ 	 		$scope.loading=true;
  	 		$scope.message = result.desc;
  	 		login.accno="";
  	 	}
  	 },function(error){
- 	 	$scope.message = "An error occurred";
+ 	 	$scope.loading = true;
+        $scope.message = "An error occurred";
  	 	console.log(error);
+ 	 },function(){
+ 	 	$scope.loading = false;
+        console.log("finally");
  	 });
  	}
 }])
 
-,angular.module("rupicapp").controller("pickupcashCtrl",["$scope","$location",function($scope,t){
+,angular.module("rupicapp").controller("pickupcashCtrl",["$scope",
+														"$location",
+														"rupicFactory",
+														"geoLocationFactory",
+														function($scope,t,rupicfactory,gl){
 
- $scope.denom100 = 0;  $scope.denom500 = 0;  $scope.denom1000 = 0;  $scope.denom2000 = 0; $scope.total = 0;
+$scope.myform = {"denom100": 0, "denom500": 0, "denom1000": 0, "denom2000": 0, "total": 0}; 
  	
- $scope.submit=function(){
-	 return t.path("/pickupdetails"),!1
+ $scope.submit=function(e){
+ 		console.log(e)
+ 		var obj = gl.myCoordinates(); 	
+ 		//rupicfactory.requestpickup(e);  
 	}
 
-$scope.add=function(e){
-	  if(e==100){
-	  	$scope.denom100 = $scope.denom100+1;
-	  	$scope.total = $scope.total + e * $scope.denom100;
-	  	return $scope.denom100;
+$scope.add=function(e,n){
+		console.log(n);
+		if(n==100){e.denom100 = Number(e.denom100||0) + 1};
+		if(n==500){e.denom500 = Number(e.denom500||0) + 1};
+		if(n==1000){e.denom1000 = Number(e.denom1000||0) + 1};
+		if(n==2000){e.denom2000 = Number(e.denom2000||0) + 1};
+		e.total = (100* e.denom100) + (500*e.denom500) + (1000*e.denom1000) + (2000*e.denom2000);
+		//$scope.myform.total = (100* e.denom100) + (500*e.denom500) + (1000*e.denom1000) + (2000*e.denom2000)
+	  	console.log(e);
 	  }
-	  	
-	  if(e==500){
-	  	$scope.denom500 = $scope.denom500+1;
-	  	$scope.total = $scope.total + e * $scope.denom500;
-	  	return $scope.denom500;
-	  }
-	  if(e=1000){
-	  	$scope.denom1000 = $scope.denom1000+1;
-	  	$scope.total = $scope.total + e * $scope.denom1000;
-	  	return $scope.denom1000;
-	  }
-	  if(e=2000){
-	  	$scope.denom2000 = $scope.denom2000+1;
-	  	$scope.total = $scope.total + e * $scope.denom2000;
-	  	return $scope.denom2000;
-	  }
-}
 
-$scope.subtract=function(e){
-	  if(e==100){
-	  	if($scope.denom100 > 0){
-		  	$scope.denom100 = $scope.denom100-1;
-		  	$scope.total = $scope.total - (e * $scope.denom100);}
-	  	return $scope.denom100;
-	  }
-	  if(e==500)	{
-	  	if($scope.denom500 > 0){
-		  	$scope.denom500 = $scope.denom500-1;
-		  	$scope.total = $scope.total - (e * $scope.denom500);}
-	  	return $scope.denom500;
-	  	}
-	  if(e=1000)	{
-	  	if($scope.denom1000 > 0){
-		  	$scope.denom1000 = $scope.denom1000-1;
-		  	$scope.total = $scope.total - (e * $scope.denom1000);}
-	  	return $scope.denom1000;
-	  	}
-	  if(e=2000){
-	  	if($scope.denom2000 > 0){
-		  	$scope.denom2000 = $scope.denom2000-1;
-		  	$scope.total = $scope.total - (e * $scope.denom2000);}
-	  	return $scope.denom2000;
-	  }
-}	
-
-
+$scope.subtract=function(e,n){
+		if(n==100){e.denom100 = Number(e.denom100||0) - 1};
+		if(n==500){e.denom500 = Number(e.denom500||0) - 1};
+		if(n==1000){e.denom1000 = Number(e.denom1000||0) - 1};
+		if(n==2000){e.denom2000 = Number(e.denom2000||0) - 1};
+		e.total = (100* e.denom100) + (500*e.denom500) + (1000*e.denom1000) + (2000*e.denom2000);
+	}
 }])
-
+	
 ,angular.module("rupicapp").controller("DashboardCtrl",["$scope","$state",function(r,t){
 
 r.$state=t

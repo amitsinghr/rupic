@@ -18,7 +18,8 @@
 			<div class="panel-heading">
 				<span class="fa fa-rupee"></span>&nbsp;Please enter Cash denominations</div>
 			<div class="panel-body">
-				<form ng-submit="submit()" role="form">
+				{{myform | json }}
+				<form ng-submit="submit(myform)" role="form" nsame="myform">
 					<div class="table-form">
 						<div class="form-groups">
 							<div class="form-group">
@@ -26,14 +27,14 @@
 									<div class="col-xs-2 col-md-2 text-right">
 										100</div>
 									<div class="col-xs-2 col-md-2">
-										<button class="btn btn-white" ng-click="subtract(100)">
+										<button class="btn btn-white" ng-click="subtract(myform,'100')" ng-disabled="myform.denom100==0">
 										<i aria-hidden="true" class="fa fa-minus">
 										</i></button></div>
 									<div class="col-xs-6 col-md-6">
-										<input class="form-control"  placeholder="" type="text" ng-model="denom100" value={{denom100}} />
+										<input class="form-control" placeholder="" ng-disabled="true" ng-Keyup "add(myform,100)" type="text" ng-model="myform.denom100" value={{myform.denom100}} />
 									</div>
 									<div class="col-xs-2 col-md-2">
-										<button class="btn btn-primary btn-white pull-right" ng-click="add(100)">
+										<button class="btn btn-primary btn-white pull-right" ng-click="add(myform,100)">
 										<i aria-hidden="true" class="fa fa-plus">
 										</i></button></div>
 								</div>
@@ -41,14 +42,14 @@
 									<div class="col-xs-2 col-md-2 text-right">
 										500</div>
 									<div class="col-xs-2 col-md-2">
-										<button class="btn btn-white" ng-click="subtract(500)">
+										<button class="btn btn-white" ng-click="subtract(myform,'500')" ng-disabled="myform.denom500==0">
 										<i aria-hidden="true" class="fa fa-minus">
 										</i></button></div>
 									<div class="col-xs-6 col-md-6">
-										<input class="form-control" ng-model="denom500" placeholder="" type="text" value={{denom500}} />
+										<input class="form-control" ngKeyup "add(myform,500)" type="text" ng-disabled="true" ng-model="myform.denom500" value={{myform.denom500}}/>
 									</div>
 									<div class="col-xs-2 col-md-2">
-										<button class="btn btn-primary btn-white pull-right" ng-click="add(500)">
+										<button class="btn btn-primary btn-white pull-right" ng-click="add(myform,500)">
 										<i aria-hidden="true" class="fa fa-plus">
 										</i></button></div>
 								</div>
@@ -56,14 +57,14 @@
 									<div class="col-xs-2 col-md-2 text-right">
 										1000</div>
 									<div class="col-xs-2 col-md-2">
-										<button class="btn btn-white" ng-click="subtract(1000)">
+										<button class="btn btn-white" ng-click="subtract(myform,'1000')" ng-disabled="myform.denom1000==0">
 										<i aria-hidden="true" class="fa fa-minus">
 										</i></button></div>
 									<div class="col-xs-6 col-md-6">
-										<input class="form-control" ng-model="denom1000" placeholder="" type="text" value={{denom1000}} />
+										<input class="form-control" ng-disabled="true" ngKeyup "add(myform,1000)" type="text" ng-model="myform.denom1000" value={{myform.denom1000}}/>
 									</div>
 									<div class="col-xs-2 col-md-2">
-										<button class="btn btn-primary btn-white pull-right" ng-click="add(1000)">
+										<button class="btn btn-primary btn-white pull-right" ng-click="add(myform,1000)">
 										<i aria-hidden="true" class="fa fa-plus">
 										</i></button></div>
 
@@ -72,34 +73,34 @@
 									<div class="col-xs-2 col-md-2 text-right">
 										2000</div>
 									<div class="col-xs-2 col-md-2">
-										<button class="btn btn-white" ng-click="subtract(2000)">
+										<button class="btn btn-white" ng-click="subtract(myform,'2000')" ng-disabled="myform.denom2000==0">
 										<i aria-hidden="true" class="fa fa-minus">
 										</i></button></div>
 									<div class="col-xs-6 col-md-6">
-										<input class="form-control" ng-model="denom2000" placeholder="" type="text" value={{denom2000}} />
+										<input class="form-control" ng-disabled="true" ngKeyup "add(myform,2000)" type="text" ng-model="myform.denom2000" value={{myform.denom2000}}/>
 									</div>
 									<div class="col-xs-2 col-md-2">
-										<button class="btn btn-primary btn-white pull-right" ng-click="add(2000)">
+										<button class="btn btn-primary btn-white pull-right" ng-click="add(myform,2000)">
 										<i aria-hidden="true" class="fa fa-plus">
 										</i></button></div>
 								</div>
 								<div class="row">
-									<div class="col-xs-12 col-md-12">
-									<hr/>
+									<div class="col-xs-4 col-md-6 text-center">
+										<hr/>
+										<strong>Total</strong></div>
+									<div class="col-xs-8 col-md-6 text-left">
+										<hr/>
+										<strong ng-model="myform.total">{{myform.total}}</strong></div>
 									</div>
 								</div>	
 								<div class="row">
-									<div class="col-xs-4 col-md-6 text-center">
-										<h3><strong>Total</strong></h3></div>
-									<div class="col-xs-8 col-md-6 text-left">
-										<h3><strong>{{total}}</strong></h3></div>
-									</div>
+									
 								</div>
 								<div class="row">
 			<div class="col-xs-12 col-md-12">
-				<a class="btn btn-primary btn-lg btn-white text-center" type="submit" ui-sref="pickupdetails">
+				<button class="btn btn-primary btn-lg btn-white text-center" type="submit" ng-disabled="myform.total==0">
 				<i aria-hidden="true" class="fa fa-flash"></i>&nbsp;<small>Collect 
-				Now</small></a>
+				Now</small></button>
 				<a class="btn btn-primary btn-lg btn-white text-center" type="submit" ui-sref="schedulepickup" ng-disabled="true">
 				<i aria-hidden="true" class="fa fa-clock-o"></i>&nbsp;<small>Schedule</small></a>
 			</div>
